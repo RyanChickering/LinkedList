@@ -6,10 +6,31 @@
 //  Copyright © 2020 Ryan Chickering. All rights reserved.
 //
 
+#include <stdbool.h>
+#include <stdlib.h>
 #include <stdio.h>
+#include "LinkedList.c"
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    printf("Hello, World!\n");
+    struct LinkedList* list = init();
+    int array[] = {1, 3, 9, 7, 12, 14};
+    for(int i = 0; i < sizeof(array)/sizeof(int); i++){
+        add(list, array[i]);
+    }
+    for(int i = 0; i < list->size; i++){
+        printf("%i, ", get(list, i));
+    }
+    delete(list, 4);
+    printf("\n");
+    for(int i = 0; i < list->size; i++){
+        printf("%i, ", get(list, i));
+    }
+    insert(list, 3, 2);
+    printf("\n");
+    for(int i = 0; i < list->size; i++){
+        printf("%i, ", get(list, i));
+    }
     return 0;
 }
+
+
