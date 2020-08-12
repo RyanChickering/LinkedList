@@ -9,7 +9,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "LinkedList.c"
+#include "LinkedList.h"
 
 int main(int argc, const char * argv[]) {
     struct LinkedList* list = init();
@@ -30,7 +30,6 @@ int main(int argc, const char * argv[]) {
     for(int i = 0; i < list->size; i++){
         printf("%i, ", get(list, i));
     }
+    free(list);
     return 0;
 }
-
-

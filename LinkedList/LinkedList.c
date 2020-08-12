@@ -7,7 +7,6 @@
 //
 
 #include "LinkedList.h"
-#include <stdbool.h>
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -24,7 +23,7 @@ static struct node* nodeAtIndex(struct LinkedList* linklist, int index){
 }
 
 //Method to add a new node to the end of the list
-static bool add(struct LinkedList* linklist, int val){
+bool add(struct LinkedList* linklist, int val){
     if(linklist->size == 0){
         linklist->head->value = val;
         linklist->size++;
@@ -39,7 +38,7 @@ static bool add(struct LinkedList* linklist, int val){
     return true;
 }
 
-static struct LinkedList* init(){
+struct LinkedList* init(){
     struct LinkedList* linklist = malloc(sizeof(struct LinkedList));
     linklist->head = malloc(sizeof(struct node));
     linklist->head->next = NULL;
@@ -49,7 +48,7 @@ static struct LinkedList* init(){
 }
 
 //Method that inserts a value into a specified index of a linked list
-static bool insert(struct LinkedList* linklist, int index, int val){
+bool insert(struct LinkedList* linklist, int index, int val){
     struct node* currnode = nodeAtIndex(linklist, index-1);
     struct node* tempnode = currnode->next;
     struct node* newnode = malloc(sizeof(struct node));
@@ -61,7 +60,7 @@ static bool insert(struct LinkedList* linklist, int index, int val){
 }
 
 //method that delets a node from a linked list
-static bool delete(struct LinkedList* linklist, int index){
+bool delete(struct LinkedList* linklist, int index){
     struct node* currnode = nodeAtIndex(linklist, index-1);
     struct node* delnode = currnode->next;
     currnode->next = delnode->next;
@@ -71,7 +70,7 @@ static bool delete(struct LinkedList* linklist, int index){
 }
 
 //Method to get the value of an index
-static int get(struct LinkedList* linklist, int index){
+int get(struct LinkedList* linklist, int index){
     if(index > linklist->size){
         printf("Index out of bounds!\n");
         return -1;
