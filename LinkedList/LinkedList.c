@@ -79,6 +79,23 @@ int get(struct LinkedList* linklist, int index){
     return currnode->value;
 }
 
+//[1,3,9,7,14]
+//When at a node, save the next node. Turn the currnode's next to point to the previous node. Set currnode to the
+//node that was previously next. Repeat.
+void reverse(struct LinkedList* linklist){
+    struct node* prevnode = linklist->head;
+    struct node* currnode = linklist->head->next;
+    prevnode->next = NULL;
+    while(currnode->next != NULL){
+        struct node* nextnode = currnode->next;
+        currnode->next = prevnode;
+        prevnode = currnode;
+        currnode = nextnode;
+    }
+    currnode->next = prevnode;
+    linklist->head = currnode;
+}
+
 
 
 

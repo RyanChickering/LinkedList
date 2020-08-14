@@ -25,7 +25,7 @@ int main(int argc, const char * argv[]) {
     for(int i = 0; i < list->size; i++){
         printf("%i, ", get(list, i));
     }
-    insert(list, 3, 2);
+    reverse(list);
     printf("\n");
     for(int i = 0; i < list->size; i++){
         printf("%i, ", get(list, i));

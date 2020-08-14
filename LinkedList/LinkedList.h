@@ -33,4 +33,6 @@ bool delete(struct LinkedList* linklist, int index);
 
 int get(struct LinkedList* linklist, int index);
 
+void reverse(struct LinkedList* linklist);
+
 #endif /* LinkedList_h */
